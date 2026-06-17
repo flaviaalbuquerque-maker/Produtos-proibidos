@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Produtos proibidos e restrições de envio – Nuvem Envio / Mandaê</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --primary: #1a1f6b;
+    --primary-light: #e8eaf6;
+    --success-bg: #e8f5e9;
+    --success-border: #27ae60;
+    --warning-bg: #fff8e1;
+    --warning-border: #e67e22;
+    --text: #2c2c2c;
+    --text-muted: #6b7280;
+    --border: #e5e7eb;
+    --white: #ffffff;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    background: var(--white);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--primary);
+    height: 80px;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+  }
+  .header-logos {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .header-logos img {
+    display: block; height: 34px; width: auto;
+  }
+  .header-divider {
+    width: 1px; height: 38px;
+    background: rgba(255,255,255,0.4);
+    margin: 0 28px; flex-shrink: 0;
+  }
+
+  /* BREADCRUMB */
+  .breadcrumb {
+    background: #f3f4f8;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .breadcrumb-inner {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 24px;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  
+  .breadcrumb-inner span { margin: 0 6px; }
+
+  /* MAIN CONTENT */
+  main {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 40px 24px 64px;
+  }
+
+  .article-header { margin-bottom: 32px; }
+
+  h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary);
+    line-height: 1.25;
+    margin-bottom: 10px;
+  }
+  .subtitle {
+    font-size: 16px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+  }
+  .meta {
+    font-size: 12px;
+    color: #9ca3af;
+    font-style: italic;
+  }
+
+  /* INTRO */
+  .intro {
+    margin-bottom: 36px;
+    font-size: 15px;
+    color: var(--text);
+  }
+
+  /* SECTIONS */
+  .section { margin-bottom: 40px; }
+  .section-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin-bottom: 28px;
+  }
+
+  h2 {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 16px;
+  }
+
+  p { margin-bottom: 14px; }
+
+  /* NUMBERED STEPS */
+  .steps { list-style: none; padding: 0; margin-bottom: 16px; }
+  .steps li {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    margin-bottom: 14px;
+  }
+  .step-num {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+  }
+  .steps li p { margin: 0; }
+
+  /* BULLET LISTS */
+  .bullet-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 16px;
+  }
+  .bullet-list li {
+    padding-left: 20px;
+    position: relative;
+    margin-bottom: 6px;
+  }
+  .bullet-list li::before {
+    content: "•";
+    color: var(--primary);
+    font-weight: 700;
+    position: absolute;
+    left: 0;
+  }
+
+  /* CALLOUTS */
+  .callout {
+    display: flex;
+    gap: 12px;
+    padding: 14px 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border-left: 4px solid;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .callout-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .callout.info { background: var(--primary-light); border-color: var(--primary); color: var(--primary); }
+  .callout.success { background: var(--success-bg); border-color: var(--success-border); color: #1a5c2e; }
+  .callout.warning { background: var(--warning-bg); border-color: var(--warning-border); color: #7a4200; }
+
+  /* TABLE */
+  .table-wrap { overflow-x: auto; margin-bottom: 20px; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  th {
+    background: var(--primary);
+    color: #fff;
+    text-align: left;
+    padding: 10px 14px;
+    font-weight: 600;
+  }
+  td {
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  tr:nth-child(even) td { background: #f7f8fc; }
+
+  /* TAG */
+  .tag-nao {
+    display: inline-block;
+    background: #fde8e8;
+    color: #b91c1c;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 99px;
+    text-transform: uppercase;
+    letter-spacing: .3px;
+  }
+  .tag-cond {
+    display: inline-block;
+    background: #fff3cd;
+    color: #92610a;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 99px;
+    text-transform: uppercase;
+    letter-spacing: .3px;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #f3f4f8;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    padding: 20px 24px;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 600px) {
+    header { padding: 14px 16px; gap: 16px; }
+    .header-logos img {
+    display: block; height: 34px; width: auto;
+  }
+    h1 { font-size: 22px; }
+    h2 { font-size: 17px; }
+    
+    main { padding: 28px 16px 48px; }
+  }
+
+  .alpha-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px 32px;
+    margin-bottom: 16px;
+  }
+  .alpha-group { }
+  .alpha-letter {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1a1f6b;
+    border-bottom: 2px solid #1a1f6b;
+    display: inline-block;
+    min-width: 22px;
+    padding-bottom: 2px;
+    margin-bottom: 6px;
+  }
+  .alpha-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  @media (max-width: 600px) {
+    .alpha-list { grid-template-columns: 1fr; }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-logos">
+    <img src="data:image/png;base64,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" alt="Nuvem Envio" style="display:block;height:34px;width:auto;">
+    <div class="header-divider"></div>
+    <img src="data:image/png;base64,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" alt="Mandaê" style="display:block;height:34px;width:auto;">
+  </div>
+</header>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">Produtos proibidos e restrições de envio</div>
+</div>
+
+<!-- MAIN -->
+<main>
+  <div class="article-header">
+    <h1>Produtos proibidos e restrições de envio</h1>
+    <p class="subtitle">Saiba quais produtos não podem ser enviados pela Nuvem Envio / Mandaê e quais possuem condições especiais de embalagem.</p>
+    <p class="meta">Última atualização: junho de 2025</p>
+  </div>
+
+  <div class="intro">
+    <p>Para garantir a segurança das encomendas, dos entregadores e de terceiros, o Nuvem Envio / Mandaê, transportadora parceira do Nuvem Envio mantém uma lista de produtos que <strong>não podem ser transportados</strong> em hipótese alguma, e outra de produtos que <strong>podem ser transportados somente com embalagem e identificação adequadas</strong>.</p>
+    <p>Leia este artigo antes de criar qualquer envio para evitar cancelamentos, extravios ou responsabilizações.</p>
+  </div>
+
+  <!-- SECAO 1 -->
+  <div class="section">
+    <hr class="section-divider">
+    <h2>Produtos não transportados</h2>
+
+    <div class="callout warning">
+      <span class="callout-icon">⚠️</span>
+      <div>O envio de qualquer item desta lista pode resultar em <strong>cancelamento imediato da coleta</strong>, retenção da encomenda e isenção de responsabilidade da Nuvem Envio / Mandaê por danos, extravios ou atrasos.</div>
+    </div>
+
+    <p>A seguir, a lista completa em ordem alfabética dos itens que <strong>não são aceitos para transporte</strong>:</p>
+
+    <div class="alpha-list">
+        <div class="alpha-group">
+          <div class="alpha-letter">A</div>
+          <ul class="alpha-items"><li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Ações</li>
+<li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Algodão em plumas, fardos, rolos e prensados</li>
+<li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Alimentos perecíveis</li>
+<li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Animais</li>
+<li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Antiguidades (peças únicas e inestimáveis)</li>
+<li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Apólices</li>
+<li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Armamentos (réplicas e afins)</li>
+<li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Armas</li></ul>
+        </div>
+<div class="alpha-group">
+          <div class="alpha-letter">B</div>
+          <ul class="alpha-items"><li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Bagagem</li>
+<li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Baterias</li>
+<li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Bilhetes de loteria</li></ul>
+        </div>
+<div class="alpha-group">
+          <div class="alpha-letter">C</div>
+          <ul class="alpha-items"><li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Cargas radioativas e nucleares</li>
+<li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Carne charque ou carne seca</li>
+<li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Cartas</li>
+<li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Cartões de crédito ou débito</li>
+<li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Cartões de estacionamento</li>
+<li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Cartões postais</li>
+<li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Cartões telefônicos</li>
+<li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Câmaras de ar</li>
+<li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Cheques e talões</li>
+<li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Cigarros</li>
+<li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Cobre</li>
+<li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Combustíveis</li>
+<li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Congelados</li></ul>
+        </div>
+<div class="alpha-group">
+          <div class="alpha-letter">D</div>
+          <ul class="alpha-items"><li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Defensivos agrícolas</li>
+<li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Diamantes industriais</li>
+<li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Documentos</li>
+<li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Drogas ilícitas</li></ul>
+        </div>
+<div class="alpha-group">
+          <div class="alpha-letter">E</div>
+          <ul class="alpha-items"><li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Escrituras</li>
+<li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Estampilhas (selo fiscal)</li>
+<li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Explosivos</li></ul>
+        </div>
+<div class="alpha-group">
+          <div class="alpha-letter">F</div>
+          <ul class="alpha-items"><li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Farinha de peixe</li></ul>
+        </div>
+<div class="alpha-group">
+          <div class="alpha-letter">J</div>
+          <ul class="alpha-items"><li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Joias</li></ul>
+        </div>
+<div class="alpha-group">
+          <div class="alpha-letter">M</div>
+          <ul class="alpha-items"><li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Medicamentos (qualquer tipo)</li>
+<li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Metais preciosos e semipreciosos</li>
+<li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Minérios em geral</li>
+<li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Moeda ou cédula</li>
+<li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Munições</li></ul>
+        </div>
+<div class="alpha-group">
+          <div class="alpha-letter">N</div>
+          <ul class="alpha-items"><li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Notas e notas promissórias</li></ul>
+        </div>
+<div class="alpha-group">
+          <div class="alpha-letter">O</div>
+          <ul class="alpha-items"><li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Objetos raros e valiosos</li>
+<li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Obras de arte (peças únicas)</li>
+<li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Ordens de pagamento</li></ul>
+        </div>
+<div class="alpha-group">
+          <div class="alpha-letter">P</div>
+          <ul class="alpha-items"><li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Pedras preciosas ou semipreciosas</li>
+<li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Pérolas em geral</li>
+<li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Plantas</li>
+<li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Produtos químicos, inflamáveis e corrosivos</li></ul>
+        </div>
+<div class="alpha-group">
+          <div class="alpha-letter">R</div>
+          <ul class="alpha-items"><li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Refrigerados (bacalhau, carnes, pescados in natura)</li>
+<li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Registros</li>
+<li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Restos fúnebres</li></ul>
+        </div>
+<div class="alpha-group">
+          <div class="alpha-letter">S</div>
+          <ul class="alpha-items"><li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Selos</li>
+<li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Seres vivos</li></ul>
+        </div>
+<div class="alpha-group">
+          <div class="alpha-letter">T</div>
+          <ul class="alpha-items"><li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Taças de vidro, cristal e porcelana</li>
+<li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Títulos de crédito</li>
+<li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Títulos diversos</li></ul>
+        </div>
+<div class="alpha-group">
+          <div class="alpha-letter">V</div>
+          <ul class="alpha-items"><li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Vacinas (humanas e veterinárias)</li>
+<li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Vale Alimentação</li>
+<li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Vale Combustível</li>
+<li style="font-size:14px;padding:3px 0;color:#2c2c2c;line-height:1.6;">Vale Refeição</li></ul>
+        </div>
+      </div>
+
+    <div class="callout info">
+      <span class="callout-icon">ℹ️</span>
+      <div>Esta lista está sujeita a atualizações. Em caso de dúvida sobre um produto específico não listado aqui, entre em contato com o suporte antes de criar o envio.</div>
+    </div>
+  </div>
+
+  <!-- SECAO 2 -->
+  <div class="section">
+    <hr class="section-divider">
+    <h2>Produtos permitidos com embalagem especial</h2>
+
+    <p>Os itens abaixo <strong>podem ser transportados</strong>, desde que devidamente embalados e <strong>identificados externamente</strong> como <em>líquido</em>, <em>frágil</em> e/ou <em>inflamável</em>, conforme aplicável:</p>
+
+    <ul class="bullet-list">
+      <li>Canecas de vidro, porcelana e gesso</li>
+      <li>Copos de vidro, porcelana, cristal e gesso</li>
+      <li>Cristais em geral</li>
+      <li>Gesso em geral</li>
+      <li>Jarras de vidro, cristal, porcelana ou gesso</li>
+      <li>Líquidos (com embalagem vedada e identificação de líquido)</li>
+      <li>Pneus</li>
+      <li>Porcelanas em geral</li>
+      <li>Vasos de vidro, cristal, porcelana e gesso</li>
+      <li>Vidros em geral</li>
+    </ul>
+
+    <div class="callout success">
+      <span class="callout-icon">✅</span>
+      <div>Ao embalar corretamente e identificar o pacote, a Nuvem Envio / Mandaê assume as responsabilidades de dano previstas no contrato. Sem identificação adequada, a transportadora fica isenta de responsabilidade.</div>
+    </div>
+  </div>
+
+  <!-- SECAO 3 -->
+  <div class="section">
+    <hr class="section-divider">
+    <h2>Requisitos de embalagem para itens especiais</h2>
+
+    <p>Para que a Nuvem Envio / Mandaê assuma responsabilidade em caso de danos, siga os passos abaixo ao embalar produtos frágeis ou com restrição:</p>
+
+    <ol class="steps">
+      <li>
+        <span class="step-num">1</span>
+        <p><strong>Use embalagem resistente e compatível</strong> com o tipo de produto e com o manuseio que ele sofrerá durante o transporte multimodal (coleta, triagem, rota e entrega).</p>
+      </li>
+      <li>
+        <span class="step-num">2</span>
+        <p><strong>Preencha os espaços vazios</strong> com material amortecedor (papel bolha, isopor, papel kraft, etc.) para evitar movimentação interna da mercadoria.</p>
+      </li>
+      <li>
+        <span class="step-num">3</span>
+        <p><strong>Vede completamente</strong> a embalagem com fita adesiva resistente, especialmente em líquidos, para evitar vazamentos.</p>
+      </li>
+      <li>
+        <span class="step-num">4</span>
+        <p><strong>Identifique externamente</strong> a embalagem com os adesivos ou escritas de "FRÁGIL", "LÍQUIDO" ou "INFLAMÁVEL", conforme o conteúdo.</p>
+      </li>
+    </ol>
+
+    <div class="callout warning">
+      <span class="callout-icon">⚠️</span>
+      <div><strong>Atenção:</strong> Objetos danificados sem danos visíveis na embalagem exterior indicam inadequação da embalagem interna. Nesses casos, a Nuvem Envio / Mandaê fica isenta de responsabilidade pelos danos.</div>
+    </div>
+  </div>
+
+  <!-- SECAO 4 -->
+  <div class="section">
+    <hr class="section-divider">
+    <h2>Responsabilidade sobre líquidos engarrafados</h2>
+    <p>A Nuvem Envio / Mandaê <strong>não se responsabiliza</strong> pelo transporte de líquidos engarrafados, nem pelos danos que essas encomendas possam causar a terceiros ou a outras encomendas durante o transporte.</p>
+    <p>Ao enviar qualquer líquido, o remetente assume integralmente os riscos de vazamento e contaminação de outros pacotes.</p>
+
+    <div class="callout warning">
+      <span class="callout-icon">⚠️</span>
+      <div>Se um líquido vazar e danificar outras encomendas durante o transporte, o remetente poderá ser responsabilizado pelos prejuízos causados a terceiros.</div>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  Central de Atendimento Nuvem Envio / Mandaê
+</footer>
+
+</body>
+</html>
